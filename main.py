@@ -58,35 +58,35 @@ class LogReg:
         
 
 st.title('Logistic regression')
-st.header('Example')
+# st.header('Example')
 
-train = pd.read_csv('~/Desktop/ds_bootcamp/Phase_1/ds-phase-1/05-math/aux/credit_train.csv')
-test = pd.read_csv('~/Desktop/ds_bootcamp/Phase_1/ds-phase-1/05-math/aux/credit_test.csv')
+# train = pd.read_csv('~/Desktop/ds_bootcamp/Phase_1/ds-phase-1/05-math/aux/credit_train.csv')
+# test = pd.read_csv('~/Desktop/ds_bootcamp/Phase_1/ds-phase-1/05-math/aux/credit_test.csv')
 
 scaler = StandardScaler()
 
-X_train = train[['CCAvg', 'Income']]
-y_train = train['Personal.Loan']
-X_test = test[['CCAvg', 'Income']]
-y_test = test['Personal.Loan']
+# X_train = train[['CCAvg', 'Income']]
+# y_train = train['Personal.Loan']
+# X_test = test[['CCAvg', 'Income']]
+# y_test = test['Personal.Loan']
 
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
+# X_train_scaled = scaler.fit_transform(X_train)
+# X_test_scaled = scaler.transform(X_test)
 
-learning_rate = st.number_input('Input learning rate num:', value=0.01, step=0.005)
-n_epochs = st.number_input('Input number of Epochs:', value=1000, step=100)
+# learning_rate = st.write('Learning rate num: 0.01')
+# n_epochs = st.write('Input number of Epochs: 10000')
 
-model = LogReg(learning_rate=learning_rate, n_inputs=X_train.shape[1])
-model.fit(X_train_scaled, y_train, n_epochs=n_epochs)
+# model = LogReg(learning_rate=0.01, n_inputs=X_train.shape[1])
+# model.fit(X_train_scaled, y_train, n_epochs=10000)
 
-#Proveryaem na testovom
-predictions_for_test = model.predict(X_test_scaled)
-#Output
-st.write(f"Model coefficients: w1: {model.coef_[0]}, w2: {model.coef_[1]}")
-st.write("Model intercept:", model.intercept_)
-st.write("Model accuracy on test set:", model.score(X_test_scaled, y_test))
+# #Proveryaem na testovom
+# predictions_for_test = model.predict(X_test_scaled)
+# #Output
+# st.write(f"Model coefficients: w1: {model.coef_[0]}, w2: {model.coef_[1]}")
+# st.write("Model intercept:", model.intercept_)
+# st.write("Model accuracy on test set:", model.score(X_test_scaled, y_test))
 
-model.dec_plot(X_test_scaled, y_test)
+# model.dec_plot(X_test_scaled, y_test)
 
 #These part of code for own data set
 st.subheader('Own data set')
